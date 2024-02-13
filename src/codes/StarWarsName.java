@@ -48,7 +48,7 @@ public class StarWarsName {
         starWarsFirstName = firstName + lastName;
         starWarsLastName = maidenName + cityName;
 
-        StringBuilder sb;
+        final StringBuilder sb;
 
         sb = new StringBuilder();
         sb.append("Your Star Wars name is: ")
@@ -56,7 +56,8 @@ public class StarWarsName {
                 .append(" ")
                 .append(starWarsLastName);
 
-        String result;
+        final String result;
+        
         result = sb.toString();
 
         return result;
