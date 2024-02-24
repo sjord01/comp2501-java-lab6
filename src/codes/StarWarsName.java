@@ -9,6 +9,14 @@ public class StarWarsName {
     private static final int MAIDEN_NAME_LENGTH = 2;
     private static final int CITY_NAME_LENGTH = 3;
 
+    private static final int ARGUMENT_LENGTH = 4;
+    private static final int FIRST_NAME = 0;
+    private static final int LAST_NAME = 1;
+    private static final int MAIDEN_NAME = 2;
+    private static final int CITY_NAME = 3;
+    private static final int PROGRAM_INPUT = 0;
+
+
     /**
      * Generates a Star Wars-like name based on the provided input data.
      *
@@ -27,7 +35,7 @@ public class StarWarsName {
 
         data = input.split("\\|");
 
-        if(data.length != 4)
+        if(data.length != ARGUMENT_LENGTH)
         {
             throw new IllegalArgumentException("incorrect number of words provided");
         }
@@ -37,10 +45,10 @@ public class StarWarsName {
         final String maidenName;
         final String cityName;
 
-        firstName = data[0].substring(0, FIRST_NAME_LENGTH).toLowerCase();
-        lastName = data[1].substring(0, LAST_NAME_LENGTH).toLowerCase();
-        maidenName = data[2].substring(0, MAIDEN_NAME_LENGTH).toLowerCase();
-        cityName = data[3].substring(0, CITY_NAME_LENGTH).toLowerCase();
+        firstName = data[FIRST_NAME].substring(FIRST_NAME, FIRST_NAME_LENGTH).toLowerCase();
+        lastName = data[LAST_NAME].substring(FIRST_NAME, LAST_NAME_LENGTH).toLowerCase();
+        maidenName = data[MAIDEN_NAME].substring(FIRST_NAME, MAIDEN_NAME_LENGTH).toLowerCase();
+        cityName = data[CITY_NAME].substring(CITY_NAME, CITY_NAME_LENGTH).toLowerCase();
 
         final String starWarsFirstName;
         final String starWarsLastName;
@@ -64,11 +72,12 @@ public class StarWarsName {
     }
 
     public static void main(String[] args) {
-        if (args.length == 0) {
+        if (args.length == PROGRAM_INPUT)
+        {
             throw new IllegalArgumentException("missing data input");
         }
 
-        String result = generateStarWarsName(args[0]);
+        String result = generateStarWarsName(args[PROGRAM_INPUT]);
         System.out.println(result);
     }
 }
